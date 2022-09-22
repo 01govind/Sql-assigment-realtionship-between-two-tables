@@ -1,0 +1,43 @@
+Create table Employees(
+Employee_id	         INT                   ,
+First_Name	         VARCHAR(50)   NOT NULL,
+Middle_Name          VARCHAR(50)           ,
+Last_Name	         VARCHAR(50)           ,
+Phone_number         INT           NOT NULL,
+Designation	         VARCHAR(50)   NOT NULL,
+Email_Address	     VARCHAR(50)   NOT NULL,
+[Date-Of-Birth]	     DATE          NOT NULL,
+Qualification	     VARCHAR(50)   NOT NULL
+PRIMARY KEY(Employee_id)
+)
+;
+ALTER TABLE Employees
+ADD CONSTRAINT Employee FOREIGN KEY (Employee_Id) REFERENCES Department (Employee_Id) 
+
+CREATE  TABLE Department(
+
+Employee_Id          INT              NOT NULL,
+Department_Name      VARCHAR(20)      NOT NULL,
+Location_Name        VARCHAR(20)      NOT NULL,
+PRIMARY KEY(Employee_Id)
+
+)
+
+Create  Table Reporting_Manager(
+Employee_Id         INT                 ,
+Reporting_Manager   VARCHAR(50) Not Null,
+PRIMARY KEY(Employee_Id)
+)
+ALTER TABLE Reporting_Manager
+ADD CONSTRAINT Reporting_Manager FOREIGN KEY (Employee_Id) REFERENCES Project (Employee_Id)
+
+CREATE TABLE Project(
+Employee_Id      INT                     ,
+Project_Name     VARCHAR(50)	 NOT NULL,
+Project_Manager  VARCHAR(50)	 NOT NULL,
+Project Description VARCHAR(2000) NOT NULL,
+[Start_date]     DATE			 NOT NULL,
+[End_date]       DATE            NOT NULL,
+OVERALL_Cost       DECIMAL(19,4)   NOT NULL,
+PRIMARY KEY(Employee_Id)
+)
